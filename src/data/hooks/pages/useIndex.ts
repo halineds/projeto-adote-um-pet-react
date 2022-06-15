@@ -11,7 +11,7 @@ export function useIndex(){
         [mensagem, setMensagem] = useState('');
 
         useEffect(() => {
-            ApiService.get('/pets')
+            ApiService.get('/pets/')
                 .then((resposta) => {
                     setListaPets (resposta.data);
                 })
@@ -26,7 +26,7 @@ export function useIndex(){
     function adotar(){
         if (petSelecionado !== null){
             if(validarDadosAdocao()) {
-                ApiService.post('/adocoes', {
+                ApiService.post('/adocoes/', {
                     pet_id: petSelecionado.id,
                     email,
                     valor
